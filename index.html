@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -9,23 +8,24 @@
     <!-- 微信分享卡片自定义元标签 -->
     <meta property="og:title" content="张华婴&王泽童 我们结婚啦~">
     <meta property="og:description" content="诚邀您和家人来参加我们的婚礼~">
-    <meta property="og:image" content="https://i.imgant.com/v2/nHqShRv.jpeg">
+    <meta id="ogImage" property="og:image" content="">
     <meta property="og:url" content="https://angus-wedding-invitation.netlify.app/">
     <meta property="og:type" content="website">
+
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="张华婴&王泽童 我们结婚啦~">
     <meta name="twitter:description" content="诚邀您和家人来参加我们的婚礼~">
-    <meta name="twitter:image" content="https://i.imgant.com/v2/nHqShRv.jpeg">
+    <meta id="twitterImage" name="twitter:image" content="">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
-    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- GSAP 动画库 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <!-- AOS 滚动动画库 -->
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <link href="https://cdn.bootcdn.net/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -500,8 +500,8 @@
             <div class="flex items-center gap-4">
                 <div class="hidden md:flex space-x-8">
                     <a href="#marryBgm" class="text-white hover:text-secondary transition-colors">岁月的唱片</a>
-                    <a href="#story" class="text-white hover:text-secondary transition-colors">我们的故事</a>
-                    <a href="#photos" class="text-white hover:text-secondary transition-colors">照片集</a>
+                    <a href="#story" class="text-white hover:text-secondary transition-colors">致亲朋好友</a>
+                    <a href="#photos" class="text-white hover:text-secondary transition-colors">我的照片集</a>
                     <a href="#details" class="text-white hover:text-secondary transition-colors">活动详情</a>
                 </div>
                 <div id="music-control" class="w-10 h-10 rounded-full bg-secondary/80 flex items-center justify-center cursor-pointer hover:scale-110 transition-all shadow-lg" onclick="togglePlay()">
@@ -515,15 +515,15 @@
         <div class="md:hidden bg-dark bg-opacity-90 hidden" id="mobile-menu">
             <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
                 <a href="#marryBgm" class="text-white hover:text-secondary transition-colors py-2">岁月的唱片</a>
-                <a href="#story" class="text-white hover:text-secondary transition-colors py-2">我们的故事</a>
-                <a href="#photos" class="text-white hover:text-secondary transition-colors py-2">照片集</a>
+                <a href="#story" class="text-white hover:text-secondary transition-colors py-2">致亲朋好友</a>
+                <a href="#photos" class="text-white hover:text-secondary transition-colors py-2">我的照片集</a>
                 <a href="#details" class="text-white hover:text-secondary transition-colors py-2">活动详情</a>
             </div>
         </div>
     </nav>
     <!-- 海报区域 -->
-    <section class="hero-section p-8 shadow-2xl transform transition-all duration-500 hover:scale-[1.02]"
-             style="background-image: url('https://i.imgant.com/v2/V1XWPG8.jpeg'); background-size: cover; background-position: center top; ">
+    <section id="heroBg" class="hero-section p-8 shadow-2xl transform transition-all duration-500 hover:scale-[1.02]"
+             style="background-size: cover; background-position: center top; ">
         <div class="hero-overlay"></div>
         <div class="container mx-auto px-4 h-full flex flex-col justify-center items-center text-center relative z-10">
             <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-4 text-shadow-lg"
@@ -563,9 +563,7 @@
                     <div class="vinyl" id="vinyl">
                         <div class="vinyl-grooves"></div>
                         <div class="vinyl-label"></div>
-                        <img src="https://i.imgant.com/v2/7R8rIRM.jpeg"
-                             alt="Wedding Couple"
-                             class="vinyl-photo">
+                        <img id="marryBgmImg" alt="Wedding Couple" class="vinyl-photo">
                         <div class="vinyl-center"></div>
                         <!-- 播放状态指示器 -->
                         <div class="absolute top-4 right-4 w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 transition-opacity duration-300" id="playIndicator">
@@ -596,9 +594,7 @@
                         <!-- 新郎小时候 -->
                         <div class="flex flex-col items-center">
                             <div class="photo-frame w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-3">
-                                <img src="https://i.imgant.com/v2/LRR7GU4.jpeg"
-                                     alt="新郎小时候"
-                                     class="w-full h-full object-cover">
+                                <img id="manYoung" alt="新郎小时候" class="w-full h-full object-cover">
                             </div>
                             <p class="text-sm font-medium">新郎: 王泽童</p>
                             <p class="text-xs text-textLight">小时候</p>
@@ -607,9 +603,7 @@
                         <!-- 新娘小时候 -->
                         <div class="flex flex-col items-center">
                             <div class="photo-frame w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-3">
-                                <img src="https://i.imgant.com/v2/NYXRrGw.jpeg"
-                                     alt="新娘小时候"
-                                     class="w-full h-full object-cover">
+                                <img id="womanYoung" alt="新娘小时候" class="w-full h-full object-cover">
                             </div>
                             <p class="text-sm font-medium">新娘: 张华婴</p>
                             <p class="text-xs text-textLight">小时候</p>
@@ -621,9 +615,7 @@
                         <!-- 新郎长大后 -->
                         <div class="flex flex-col items-center">
                             <div class="photo-frame w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-3">
-                                <img src="https://i.imgant.com/v2/yiB0AQb.jpeg"
-                                     alt="新郎长大后"
-                                     class="w-full h-full object-cover">
+                                <img id="manOld" alt="新郎长大后" class="w-full h-full object-cover">
                             </div>
                             <p class="text-sm font-medium">新郎: 王泽童</p>
                             <p class="text-xs text-textLight">长大后</p>
@@ -632,9 +624,7 @@
                         <!-- 新娘长大后 -->
                         <div class="flex flex-col items-center">
                             <div class="photo-frame w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-3">
-                                <img src="https://i.imgant.com/v2/l7vfsit.jpeg"
-                                     alt="新娘长大后"
-                                     class="w-full h-full object-cover">
+                                <img id="womanOld" alt="新娘长大后" class="w-full h-full object-cover">
                             </div>
                             <p class="text-sm font-medium">新娘: 张华婴</p>
                             <p class="text-xs text-textLight">长大后</p>
@@ -649,32 +639,39 @@
     <section id="story" class="py-20 bg-white p-8 shadow-2xl transform transition-all duration-500 hover:scale-[1.02]">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-dark mb-4" data-aos="fade-up">我们的故事</h2>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-dark mb-4" data-aos="fade-up">致亲朋好友</h2>
                 <div class="w-24 h-1 bg-secondary mx-auto mb-6" data-aos="fade-up" data-aos-delay="200"></div>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="300">
-                    从相识、相知到相爱，我们走过了美好的时光，现在即将步入人生的新阶段。
+                    致我们最亲爱的家人和朋友
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div class="order-2 md:order-1" data-aos="fade-right">
-                    <h3 class="text-2xl font-serif font-bold text-dark mb-4">相识</h3>
-                    <p class="text-gray-600 mb-6">
-                        那是一个阳光明媚的下午，我们在朋友的聚会上初次相遇。第一眼见到你，我就知道，你是我想要共度一生的人。你的笑容如阳光般温暖，照亮了我的心房。
+                    <h3 class="text-2xl font-serif font-bold text-dark mb-4 text-center">相逢</h3>
+                    <p class="text-gray-600 mb-6 text-center">
+                        很高兴这一天 您专程为我们而来<br>
+                        感谢千里迢迢的奔赴<br>
+                        与不计得失的支持
                     </p>
 
-                    <h3 class="text-2xl font-serif font-bold text-dark mb-4">相知</h3>
-                    <p class="text-gray-600 mb-6">
-                        随着时间的推移，我们越来越了解彼此。我们分享快乐，分担忧愁，一起经历生活中的点点滴滴。你的理解与支持，让我更加确定，你就是我生命中最重要的人。
+                    <h3 class="text-2xl font-serif font-bold text-dark mb-4 text-center">相伴</h3>
+                    <p class="text-gray-600 mb-6 text-center">
+                        生命的不同经纬<br>
+                        人生的长桌 每一席都珍贵<br>
+                        最幸福的时刻<br>
+                        就是现在呀
                     </p>
 
-                    <h3 class="text-2xl font-serif font-bold text-dark mb-4">相爱</h3>
-                    <p class="text-gray-600">
-                        爱情如酒，越陈越香。我们的感情在岁月的洗礼中愈发深厚。今天，我们决定携手走进婚姻的殿堂，共同开启人生的新篇章。
+                    <h3 class="text-2xl font-serif font-bold text-dark mb-4 text-center">感恩</h3>
+                    <p class="text-gray-600 text-center">
+                        人海茫茫 山山而川<br>
+                        祝有爱者更爱 独立者更自由<br>
+                        岁岁无虞 常乐长安
                     </p>
                 </div>
                 <div class="order-1 md:order-2 relative" data-aos="fade-left">
-                    <img src="https://i.imgant.com/v2/aosKjnC.jpeg" alt="新娘照片" loading="lazy"
+                    <img id="storyImg" alt="新娘照片"
                          class="w-full h-auto rounded-lg shadow-xl">
                     <div class="absolute -bottom-6 -left-6 bg-secondary text-white p-4 rounded-lg shadow-lg hidden md:block">
                         <p class="font-serif text-lg">执子之手，与子偕老</p>
@@ -689,7 +686,7 @@
     <section id="photos" class="py-20 bg-primary p-8 shadow-2xl transform transition-all duration-500 hover:scale-[1.02]">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-dark mb-4" data-aos="fade-up">照片集</h2>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-dark mb-4" data-aos="fade-up">我的照片集</h2>
                 <div class="w-24 h-1 bg-secondary mx-auto mb-6" data-aos="fade-up" data-aos-delay="200"></div>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="300">
                     记录我们幸福时刻的珍贵照片，与您分享我们的喜悦。
@@ -990,70 +987,88 @@
                 });
             });
 
+            const imageUrls = [
+                "https://i.imgant.com/v2/MoQD7Fx.jpeg",
+                "https://i.imgant.com/v2/StgXeGW.jpeg",
+                "https://i.imgant.com/v2/oYSxZ2H.jpeg",
+                "https://i.imgant.com/v2/eObjGHH.jpeg",
+                "https://i.imgant.com/v2/aojzWWP.jpeg",
+                "https://i.imgant.com/v2/Jj8vjRl.jpeg",
+                "https://i.imgant.com/v2/1IOhRM7.jpeg",
+                "https://i.imgant.com/v2/ebrxbzP.jpeg",
+            ];
+            document.getElementById("ogImage").content = imageUrls[5];
+            document.getElementById("twitterImage").content = imageUrls[5];
+            document.getElementById("heroBg").style.backgroundImage = `url(${imageUrls[1]})`;
+            document.getElementById("marryBgmImg").src = imageUrls[4];
+            document.getElementById("manYoung").src = imageUrls[7];
+            document.getElementById("womanYoung").src = imageUrls[6];
+            document.getElementById("manOld").src = imageUrls[2];
+            document.getElementById("womanOld").src = imageUrls[3];
+            document.getElementById("storyImg").src = imageUrls[0];
             // 照片数据
             const photos = [
-                { url: 'https://i.imgant.com/v2/5shZisG.jpeg', aspectRatio: 'landscape' },
-                { url: 'https://i.imgant.com/v2/DNOuDHO.jpeg', aspectRatio: 'landscape' },
-                { url: 'https://i.imgant.com/v2/Sr0Ao7g.jpeg', aspectRatio: 'landscape' },
-                { url: 'https://i.imgant.com/v2/aosKjnC.jpeg', aspectRatio: 'landscape' },
-                { url: 'https://i.imgant.com/v2/BO9q706.jpeg', aspectRatio: 'landscape' },
-                { url: 'https://i.imgant.com/v2/V1XWPG8.jpeg', aspectRatio: 'landscape' },
-                { url: 'https://i.imgant.com/v2/yiB0AQb.jpeg', aspectRatio: 'landscape' },
-                { url: 'https://i.imgant.com/v2/5Y2Ys7e.jpeg', aspectRatio: 'landscape' },
-                { url: 'https://i.imgant.com/v2/l7vfsit.jpeg', aspectRatio: 'landscape' },
-                { url: 'https://i.imgant.com/v2/9503cU5.jpeg', aspectRatio: 'landscape' },
-                { url: 'https://i.imgant.com/v2/loQHriL.jpeg', aspectRatio: 'landscape' },
-                { url: 'https://i.imgant.com/v2/1gC0Omq.jpeg', aspectRatio: 'landscape' },
-                { url: 'https://i.imgant.com/v2/SRU4SxB.jpeg', aspectRatio: 'landscape' },
-                { url: 'https://i.imgant.com/v2/X9aNLAy.jpeg', aspectRatio: 'landscape' },
-                { url: 'https://i.imgant.com/v2/7R8rIRM.jpeg', aspectRatio: 'landscape' },
-                { url: 'https://i.imgant.com/v2/UEmq2Z3.jpeg', aspectRatio: 'landscape' },
-                { url: 'https://i.imgant.com/v2/gWKrxdp.jpeg', aspectRatio: 'landscape' },
-                { url: 'https://i.imgant.com/v2/sOAQuSL.jpeg', aspectRatio: 'landscape' },
-                { url: 'https://i.imgant.com/v2/LWfRzol.jpeg', aspectRatio: 'landscape' },
-                { url: 'https://i.imgant.com/v2/nHqShRv.jpeg', aspectRatio: 'landscape' },
-                { url: 'https://i.imgant.com/v2/FrpteaW.jpeg', aspectRatio: 'landscape' },
-                { url: 'https://i.imgant.com/v2/0Zr4GVz.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/wIUkLhr.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/G66F4Tu.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/DEXymrg.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/g3MIa6H.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/WYAs4KO.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/KBUuzzE.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/K6OslGd.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/i3q2kwf.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/Kqwd3mx.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/TUgbgEy.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/GGOUhQU.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/mnehax9.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/RJV97Yc.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/FVmCT6V.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/k96dbEj.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/zqzG3mc.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/zPQvvdT.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/8eRsIrN.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/zz28kJ4.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/O6QN7BF.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/M46JW96.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/LCuBQ21.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/6eodpl0.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/qZo8Et5.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/9iQn0Za.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/ORoP2eS.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/iI0uC0Z.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/2NxsuYe.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/lsw3D3O.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/GBfxaD3.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/hPs4hpk.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/P2YfhHf.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/kIQGdkQ.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/TC9GxCD.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/fkKJsUV.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/25fHc7l.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/1cQZIvp.jpeg', aspectRatio: 'portrait' },
-                { url: 'https://i.imgant.com/v2/QDkqLtU.jpeg', aspectRatio: 'portrait' }
+                { url: 'https://i.imgant.com/v2/afw17aH.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/TJmDwgE.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/SzsBTMt.jpeg', aspectRatio: 'landscape' },
+                //{ url: 'https://i.imgant.com/v2/MoQD7Fx.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/PiJmCtd.jpeg', aspectRatio: 'landscape' },
+                //{ url: 'https://i.imgant.com/v2/StgXeGW.jpeg', aspectRatio: 'landscape' },
+                //{ url: 'https://i.imgant.com/v2/oYSxZ2H.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/CCLRgD2.jpeg', aspectRatio: 'landscape' },
+                //{ url: 'https://i.imgant.com/v2/eObjGHH.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/P84wOTu.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/uhAMBLA.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/iCl1umB.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/i6oWRTW.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/801mhUU.jpeg', aspectRatio: 'landscape' },
+                //{ url: 'https://i.imgant.com/v2/aojzWWP.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/6Gi1GNB.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/WBhs3SH.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/FbIfXN0.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/PfXJ8Cv.jpeg', aspectRatio: 'landscape' },
+                //{ url: 'https://i.imgant.com/v2/Jj8vjRl.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/nVO8mqx.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/R263rFR.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/o9eXJUZ.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/j4s2efn.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/9Jlrgu4.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/PfnWUsz.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/0DMnIMc.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/9D0TcmB.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/LaD3wbW.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/vHCN9fv.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/ucStMoN.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/XqveXLY.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/1wrdjix.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/cOxVClL.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/ESyHWhm.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/U9M3h4o.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/gCvvBGz.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/kcuiblM.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/I4IT1k4.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/MOtAXkY.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/eq7piY2.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/xWI9U7D.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/P3Q07Z6.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/rTrfPrx.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/iofxuPG.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/tdBAG2D.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/dkgOFqN.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/664L7rT.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/Pp3u7n0.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/LWu1DWH.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/UYPSGB9.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/Uy4pw6q.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/IspuQm6.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/T0qKOjq.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/m5a2oPi.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/fQwrh4n.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/G5bnTxr.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/K91Kkfe.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/GqpEmI4.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/Bh8WdNY.jpeg', aspectRatio: 'portrait' }
             ];
-
             // 渲染照片网格
             const photoGallery = document.getElementById('photo-gallery');
 
@@ -1352,16 +1367,16 @@
                 const modal = document.createElement('div');
                 modal.className = 'fixed inset-0 bg-black/70 flex items-center justify-center z-50';
                 modal.innerHTML = `
-                                                            <div class="bg-white p-4 rounded-lg max-w-md w-full mx-4">
-                                                                <div class="relative">
-                                                                    <img src="${imgSrc}" alt="${imgAlt}" class="w-full h-auto rounded-lg">
-                                                                    <button class="absolute top-2 right-2 bg-white/80 rounded-full w-8 h-8 flex items-center justify-center text-textDark hover:text-primary transition-colors">
-                                                                        <i class="fa fa-times"></i>
-                                                                    </button>
-                                                                </div>
-                                                                <p class="text-center mt-3 font-medium">${imgAlt}</p>
-                                                            </div>
-                                                        `;
+                                                                                    <div class="bg-white p-4 rounded-lg max-w-md w-full mx-4">
+                                                                                        <div class="relative">
+                                                                                            <img src="${imgSrc}" alt="${imgAlt}" class="w-full h-auto rounded-lg">
+                                                                                            <button class="absolute top-2 right-2 bg-white/80 rounded-full w-8 h-8 flex items-center justify-center text-textDark hover:text-primary transition-colors">
+                                                                                                <i class="fa fa-times"></i>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <p class="text-center mt-3 font-medium">${imgAlt}</p>
+                                                                                    </div>
+                                                                                `;
 
                 document.body.appendChild(modal);
                 document.body.style.overflow = 'hidden';
