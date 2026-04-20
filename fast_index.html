@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张华婴&王泽童 出阁宴邀请函</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E❤️%3C/text%3E%3C/svg%3E">
+    <!-- 微信分享卡片自定义元标签 -->
+    <meta property="og:title" content="张华婴&王泽童 我们结婚啦~">
+    <meta property="og:description" content="诚邀您和家人来参加我们的婚礼~">
+    <meta property="og:image" content="https://i.imgant.com/v2/HtoMUDp.jpeg">
+    <meta property="og:url" content="https://angus-wedding-invitation.netlify.app/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="张华婴&王泽童 我们结婚啦~">
+    <meta name="twitter:description" content="诚邀您和家人来参加我们的婚礼~">
+    <meta name="twitter:image" content="https://i.imgant.com/v2/HtoMUDp.jpeg">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- GSAP 动画库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- AOS 滚动动画库 -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f8f0e3',
+                        secondary: '#d4af37',
+                        accent: '#8b0000',
+                        light: '#ffffff',
+                        dark: '#333333',
+                        love: '#FF6B9D',
+                        soft: '#FFF0F5',
+                        textDark: '#333333',
+                        textLight: '#666666'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    },
+                    height: {
+                        '128': '32rem',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+
+            .text-shadow-lg {
+                text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+            }
+
+            .bg-blur {
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+            }
+
+            .transition-transform {
+                transition-property: transform;
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+                transition-duration: 300ms;
+            }
+
+            .hover-scale:hover {
+                transform: scale(1.05);
+            }
+
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+
+            .border-dashed-custom {
+                border-style: dashed;
+                border-width: 1px;
+                border-color: #ff6b8b;
+            }
+
+            .photo-frame {
+                position: relative;
+                overflow: hidden;
+                border-radius: 50%;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease;
+            }
+
+                .photo-frame:hover {
+                    transform: scale(1.05);
+                }
+
+                .photo-frame::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    border: 2px solid rgba(255, 107, 139, 0.3);
+                    border-radius: 50%;
+                    pointer-events: none;
+                }
+
+            .heart-animation {
+                animation: heartbeat 2s infinite;
+            }
+
+            @keyframes heartbeat {
+                0% {
+                    transform: scale(1);
+                }
+
+                14% {
+                    transform: scale(1.1);
+                }
+
+                28% {
+                    transform: scale(1);
+                }
+
+                42% {
+                    transform: scale(1.15);
+                }
+
+                70% {
+                    transform: scale(1);
+                }
+            }
+        }
+
+        /* 自定义样式 */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f0e3;
+            overflow-x: hidden;
+        }
+
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+        }
+
+        .parallax {
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+
+        .parallax-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: translateZ(0);
+            transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .photo-gallery {
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .gallery-item {
+            scroll-snap-align: start;
+            flex: 0 0 100%;
+        }
+
+        .rsvp-form input:focus,
+        .rsvp-form textarea:focus {
+            border-color: #d4af37;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+
+        .btn-primary {
+            background-color: #d4af37;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+            .btn-primary:hover {
+                background-color: #c49a2e;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+            }
+
+        .btn-outline {
+            border: 2px solid #d4af37;
+            color: #d4af37;
+            transition: all 0.3s ease;
+        }
+
+            .btn-outline:hover {
+                background-color: #d4af37;
+                color: white;
+            }
+
+        .timeline-item {
+            position: relative;
+        }
+
+            .timeline-item::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 2px;
+                background-color: #d4af37;
+            }
+
+        .timeline-dot {
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #d4af37;
+            border: 3px solid white;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item::before {
+                left: 20px;
+            }
+
+            .timeline-dot {
+                left: 11px;
+            }
+        }
+
+        /* 动画类 */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+            .fade-in.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        /* 照片网格样式 */
+        .photo-item {
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+            .photo-item:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .photo-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+            }
+
+            .photo-item:hover img {
+                transform: scale(1.1);
+            }
+
+        /* 照片查看器样式 */
+        .viewer-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .viewer-indicator.active {
+                background-color: white;
+                transform: scale(1.2);
+            }
+
+        /* 固定导航栏终极稳定版 */
+        #navbar {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            transform: translateZ(0) !important;
+            will-change: transform;
+        }
+        /* 禁止页面横向滚动（防止导航跟着跑） */
+        html, body {
+            overflow-x: hidden !important;
+            max-width: 100vw !important;
+        }
+        /* 模拟地图缩略图样式 (永远加载成功) */
+        .mock-map {
+            background: linear-gradient(145deg, #2a3a4a 0%, #1e2f3a 100%);
+            border-radius: 1rem;
+            height: 180px;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            transition: all 0.2s;
+        }
+
+            .mock-map:hover {
+                transform: scale(1.01);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            }
+            /* 模拟道路网格 */
+            .mock-map::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: linear-gradient(#ffffff20 1px, transparent 1px), linear-gradient(90deg, #ffffff20 1px, transparent 1px);
+                background-size: 30px 30px;
+                pointer-events: none;
+            }
+        /* 地标标记 */
+        .map-marker {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fbbf24;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 2;
+            border: 2px solid white;
+        }
+
+            .map-marker i {
+                font-size: 24px;
+                color: #1e293b;
+                text-shadow: none;
+            }
+
+        .map-label {
+            position: absolute;
+            bottom: 12px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            font-size: 12px;
+            padding: 4px;
+            backdrop-filter: blur(4px);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .compass {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 24px;
+            padding: 4px 8px;
+            font-size: 12px;
+            color: white;
+            backdrop-filter: blur(4px);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+
+        .vinyl {
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            position: relative;
+            margin: 0 auto;
+            animation: spin 20s linear infinite;
+            animation-play-state: paused;
+            border: 8px solid #2D3748;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: radial-gradient(circle, #1A202C 0%, #0F1419 100%);
+        }
+
+            .vinyl:hover {
+                transform: scale(1.05);
+                box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4), inset 0 0 30px rgba(0, 0, 0, 0.6);
+            }
+
+            .vinyl.playing {
+                animation-play-state: running;
+            }
+
+        .vinyl-photo {
+            width: 90%;
+            height: 90%;
+            object-fit: cover;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 3px solid #E2E8F0;
+            z-index: 2;
+        }
+
+        .vinyl-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4A5568, #2D3748);
+            border: 4px solid #E2E8F0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+            z-index: 3;
+        }
+
+        .vinyl-grooves {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: repeating-radial-gradient( circle at center, transparent 0px, transparent 2px, rgba(255, 255, 255, 0.03) 3px, transparent 4px );
+            z-index: 1;
+        }
+
+        .vinyl-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(135, 206, 250, 0.1));
+            z-index: 1;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="fixed top-0 left-0 right-0 w-full z-50 bg-transparent transition-all duration-300"
+         style="transform: translateZ(0);-webkit-transform: translateZ(0);backface-visibility:hidden;"
+         id="navbar">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-white text-2xl font-serif font-bold text-shadow">我们结婚啦~</a>
+            <div class="flex items-center gap-4">
+                <div class="hidden md:flex space-x-8">
+                    <a href="#marryBgm" class="text-white hover:text-secondary transition-colors">岁月的唱片</a>
+                    <a href="#story" class="text-white hover:text-secondary transition-colors">我们的故事</a>
+                    <a href="#photos" class="text-white hover:text-secondary transition-colors">照片集</a>
+                    <a href="#details" class="text-white hover:text-secondary transition-colors">活动详情</a>
+                </div>
+                <div id="music-control" class="w-10 h-10 rounded-full bg-secondary/80 flex items-center justify-center cursor-pointer hover:scale-110 transition-all shadow-lg" onclick="togglePlay()">
+                    <i id="music-icon" class="fa fa-pause text-white text-xl"></i>
+                </div>
+                <button class="md:hidden text-white focus:outline-none" id="menu-toggle">
+                    <i class="fa fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <div class="md:hidden bg-dark bg-opacity-90 hidden" id="mobile-menu">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="#marryBgm" class="text-white hover:text-secondary transition-colors py-2">岁月的唱片</a>
+                <a href="#story" class="text-white hover:text-secondary transition-colors py-2">我们的故事</a>
+                <a href="#photos" class="text-white hover:text-secondary transition-colors py-2">照片集</a>
+                <a href="#details" class="text-white hover:text-secondary transition-colors py-2">活动详情</a>
+            </div>
+        </div>
+    </nav>
+    <!-- 海报区域 -->
+    <section class="hero-section p-8 shadow-2xl transform transition-all duration-500 hover:scale-[1.02]"
+             style="background-image: url('https://i.imgant.com/v2/CDyu93L.jpeg'); background-size: cover; background-position: center top; ">
+        <div class="hero-overlay"></div>
+        <div class="container mx-auto px-4 h-full flex flex-col justify-center items-center text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-4 text-shadow-lg"
+                data-aos="fade-up">
+                诚邀您参加<br><span class="text-secondary">张华婴&王泽童</span>的出阁宴<br>
+                父母：<span class="text-secondary">张济新&冒婧馨</span>敬邀
+            </h1>
+            <p class="text-xl md:text-2xl text-white mb-8 max-w-2xl text-shadow" data-aos="fade-up"
+               data-aos-delay="200">
+                我们诚挚地邀请您见证这一重要时刻，共享喜悦与祝福
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="400">
+                <a href="#details" class="btn-primary px-8 py-3 rounded-full font-medium text-lg">查看详情</a>
+            </div>
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <a href="#marryBgm" class="text-white text-4xl">
+                    <i class="fa fa-angle-down"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 黑胶容器 -->
+    <section id="marryBgm" class="glass-dark p-8 shadow-2xl transform transition-all duration-500 hover:scale-[1.02]">
+        <!-- 高级黑胶唱片动画 -->
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-dark mb-4" data-aos="fade-up">岁月的唱片</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-6" data-aos="fade-up" data-aos-delay="200"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="300">
+                    从第一声啼哭到第一次牵起爱人的手，爸爸妈妈珍藏了她所有模样。今天，邀您随着缓缓转动的唱片，看一看她走过的路，和我们一起分享这份成长的喜悦。
+                </p>
+            </div>
+            <!-- 主容器 -->
+            <div class="glass-dark rounded-3xl p-8 shadow-2xl transform transition-all duration-500 hover:scale-[1.02]">
+                <div class="vinyl-container mb-8 flex justify-center" onclick="togglePlay()">
+                    <div class="vinyl" id="vinyl">
+                        <div class="vinyl-grooves"></div>
+                        <div class="vinyl-label"></div>
+                        <img src="https://i.imgant.com/v2/MUGYqSg.jpeg"
+                             alt="Wedding Couple"
+                             class="vinyl-photo">
+                        <div class="vinyl-center"></div>
+                        <!-- 播放状态指示器 -->
+                        <div class="absolute top-4 right-4 w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 transition-opacity duration-300" id="playIndicator">
+                            <i class="fa fa-music text-white"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- 状态显示 -->
+                <div class="text-center mb-6" onclick="togglePlay()">
+                    <div class="bg-gray-800/50 rounded-full px-4 py-2 inline-block">
+                        <span class="text-sm font-medium text-gray-300" id="status">
+                            点击黑胶唱片播放音乐
+                        </span>
+                    </div>
+                </div>
+                <!-- 顶部文字区域 -->
+                <div class="text-center py-6">
+                    <p class="text-lg mb-2 text-textDark">我们在春天</p>
+                    <p class="text-base mb-2 text-textLight">一场浪漫的邂逅开启了我们的故事</p>
+                    <p class="text-base mb-4 text-textLight">让我们以爱的名义相邀</p>
+
+                </div>
+
+                <!-- 照片网格 - 新郎新娘从小到大 -->
+                <div class="px-4 mb-6">
+                    <!-- 小时候照片行 -->
+                    <div class="flex justify-center space-x-8 mb-6">
+                        <!-- 新郎小时候 -->
+                        <div class="flex flex-col items-center">
+                            <div class="photo-frame w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-3">
+                                <img src="https://i.imgant.com/v2/LRR7GU4.jpeg"
+                                     alt="新郎小时候"
+                                     class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-sm font-medium">新郎: 王泽童</p>
+                            <p class="text-xs text-textLight">小时候</p>
+                        </div>
+
+                        <!-- 新娘小时候 -->
+                        <div class="flex flex-col items-center">
+                            <div class="photo-frame w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-3">
+                                <img src="https://i.imgant.com/v2/NYXRrGw.jpeg"
+                                     alt="新娘小时候"
+                                     class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-sm font-medium">新娘: 张华婴</p>
+                            <p class="text-xs text-textLight">小时候</p>
+                        </div>
+                    </div>
+
+                    <!-- 长大后照片行 -->
+                    <div class="flex justify-center space-x-8">
+                        <!-- 新郎长大后 -->
+                        <div class="flex flex-col items-center">
+                            <div class="photo-frame w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-3">
+                                <img src="https://i.imgant.com/v2/NIQVKdc.jpeg"
+                                     alt="新郎长大后"
+                                     class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-sm font-medium">新郎: 王泽童</p>
+                            <p class="text-xs text-textLight">长大后</p>
+                        </div>
+
+                        <!-- 新娘长大后 -->
+                        <div class="flex flex-col items-center">
+                            <div class="photo-frame w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-3">
+                                <img src="https://i.imgant.com/v2/K36MAyw.jpeg"
+                                     alt="新娘长大后"
+                                     class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-sm font-medium">新娘: 张华婴</p>
+                            <p class="text-xs text-textLight">长大后</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 我们的故事 -->
+    <section id="story" class="py-20 bg-white p-8 shadow-2xl transform transition-all duration-500 hover:scale-[1.02]">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-dark mb-4" data-aos="fade-up">我们的故事</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-6" data-aos="fade-up" data-aos-delay="200"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="300">
+                    从相识、相知到相爱，我们走过了美好的时光，现在即将步入人生的新阶段。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1" data-aos="fade-right">
+                    <h3 class="text-2xl font-serif font-bold text-dark mb-4">相识</h3>
+                    <p class="text-gray-600 mb-6">
+                        那是一个阳光明媚的下午，我们在朋友的聚会上初次相遇。第一眼见到你，我就知道，你是我想要共度一生的人。你的笑容如阳光般温暖，照亮了我的心房。
+                    </p>
+
+                    <h3 class="text-2xl font-serif font-bold text-dark mb-4">相知</h3>
+                    <p class="text-gray-600 mb-6">
+                        随着时间的推移，我们越来越了解彼此。我们分享快乐，分担忧愁，一起经历生活中的点点滴滴。你的理解与支持，让我更加确定，你就是我生命中最重要的人。
+                    </p>
+
+                    <h3 class="text-2xl font-serif font-bold text-dark mb-4">相爱</h3>
+                    <p class="text-gray-600">
+                        爱情如酒，越陈越香。我们的感情在岁月的洗礼中愈发深厚。今天，我们决定携手走进婚姻的殿堂，共同开启人生的新篇章。
+                    </p>
+                </div>
+                <div class="order-1 md:order-2 relative" data-aos="fade-left">
+                    <img src="https://i.imgant.com/v2/jjnkVwl.jpeg" alt="新娘照片" loading="lazy"
+                         class="w-full h-auto rounded-lg shadow-xl">
+                    <div class="absolute -bottom-6 -left-6 bg-secondary text-white p-4 rounded-lg shadow-lg hidden md:block">
+                        <p class="font-serif text-lg">执子之手，与子偕老</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 照片集 -->
+    <section id="photos" class="py-20 bg-primary p-8 shadow-2xl transform transition-all duration-500 hover:scale-[1.02]">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-dark mb-4" data-aos="fade-up">照片集</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-6" data-aos="fade-up" data-aos-delay="200"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="300">
+                    记录我们幸福时刻的珍贵照片，与您分享我们的喜悦。
+                </p>
+            </div>
+
+            <!-- 照片网格 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto" id="photo-gallery"
+                 data-aos="fade-up" data-aos-delay="400">
+                <!-- 照片将通过JavaScript动态添加 -->
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- 活动详情 -->
+    <section id="details" class="py-20 bg-dark text-white p-8 shadow-2xl transform transition-all duration-500 hover:scale-[1.02]">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4" data-aos="fade-up">活动详情</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-6" data-aos="fade-up" data-aos-delay="200"></div>
+                <p class="text-lg text-gray-300 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="300">
+                    2026年5月5日，爱女张华婴与爱婿王泽童喜结连理。<br>父母张济新、冒婧馨敬备薄酒，诚邀您莅临出阁宴，共同见证这幸福时刻。
+                </p>
+            </div>
+            <!--<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">-->
+            <!-- 时间地点 高级卡片 -->
+            <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl p-8" data-aos="fade-right">
+                <h3 class="text-2xl font-serif font-bold mb-8 flex items-center gap-3 text-white">
+                    <i class="fa fa-calendar text-secondary text-2xl"></i> 时间与地点
+                </h3>
+                <div class="space-y-6">
+                    <!-- 时间 -->
+                    <div class="flex items-center gap-5">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-secondary/15 border border-secondary/20">
+                            <i class="fa fa-clock-o text-secondary text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-medium text-secondary mb-1">日期与时间</h4>
+                            <p class="text-gray-200">2026年5月5日（星期二）13:30</p>
+                        </div>
+                    </div>
+                    <!-- 地点 -->
+                    <div class="flex items-center gap-5">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-secondary/15 border border-secondary/20">
+                            <i class="fa fa-map-marker text-secondary text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-medium text-secondary mb-1">宴会地点</h4>
+                            <p class="text-gray-200">特克斯县太极岛酒店</p>
+                        </div>
+                    </div>
+                    <!-- 邀请对象 -->
+                    <div class="flex items-center gap-5">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-secondary/15 border border-secondary/20">
+                            <i class="fa fa-users text-secondary text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-medium text-secondary mb-1">邀请对象</h4>
+                            <p class="text-gray-200">您及家人</p>
+                        </div>
+                    </div>
+
+                    <!-- 地图导航 -->
+                    <div class="mt-6">
+                        <div id="mockMap" class="mock-map rounded-xl overflow-hidden" onclick="searchOnAmap()">
+                            <div class="compass"><i class="fas fa-location-dot"></i> 太极岛酒店</div>
+                            <div class="map-marker"><i class="fas fa-utensils"></i></div>
+                            <div class="map-label"><i class="fas fa-map-pin"></i> 特克斯县太极岛酒店 · 点击导航</div>
+                        </div>
+                        <a href="javascript:void(0);" id="navTriggerBtn" onclick="searchOnAmap()"
+                           class="mt-3 inline-flex items-center justify-center gap-2 border border-secondary/30 bg-secondary/10 hover:bg-secondary/20 text-secondary px-5 py-2 rounded-xl transition-all w-full">
+                            <i class="fa fa-location-arrow"></i> 一键导航
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 活动流程 高级时间线 -->
+            <!--<div data-aos="fade-left">
+                <h3 class="text-2xl font-serif font-bold mb-8 flex items-center gap-3">
+                    <i class="fa fa-list-alt text-secondary"></i> 活动流程
+                </h3>
+                <div class="space-y-5 pl-4">
+                    <div class="flex gap-5 items-start">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-secondary/15 border border-secondary/20 shrink-0">
+                            <i class="fa fa-pencil text-secondary text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-medium text-white">13:30 嘉宾签到</h4>
+                            <p class="text-gray-400 text-sm mt-1">嘉宾签到并有序入座</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-5 items-start">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-secondary/15 border border-secondary/20 shrink-0">
+                            <i class="fa fa-heart text-secondary text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-medium text-white">14:00 仪式开始</h4>
+                            <p class="text-gray-400 text-sm mt-1">出阁仪式正式开始</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-5 items-start">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-secondary/15 border border-secondary/20 shrink-0">
+                            <i class="fa fa-cutlery text-secondary text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-medium text-white">14:30 宴会开始</h4>
+                            <p class="text-gray-400 text-sm mt-1">享用丰盛的午餐</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-5 items-start">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-secondary/15 border border-secondary/20 shrink-0">
+                            <i class="fa fa-glass text-secondary text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-medium text-white">15:00 互动环节</h4>
+                            <p class="text-gray-400 text-sm mt-1">新人向在座嘉宾敬酒</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-5 items-start">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-secondary/15 border border-secondary/20 shrink-0">
+                            <i class="fa fa-gift text-secondary text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-medium text-white">17:00 活动结束</h4>
+                            <p class="text-gray-400 text-sm mt-1">仪式结束，嘉宾离场</p>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+            <!--</div>-->
+        </div>
+    </section>
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <!--<div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-2xl font-serif font-bold mb-4">出阁宴</h3>
+                    <p class="text-gray-400 mb-4">
+                        诚挚邀请您参加张华婴&王泽童的出阁宴，共同见证这一重要时刻。<br>主办：张华婴父母 张济新&冒婧馨 敬邀
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0);" class="text-white hover:text-secondary transition-colors" onclick="copyToClipboard('AngusZTWang')">
+                            <i class="fa fa-weixin text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors" onclick="copyToClipboard('夹竹桃是我')">
+                            <i class="fa fa-weibo text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-secondary transition-colors" onclick="copyToClipboard('angus.zt.wang@outlook.com')">
+                            <i class="fa fa-envelope text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-medium mb-4">联系我们</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center">
+                            <i class="fa fa-phone mr-2 text-secondary"></i>
+                            <span>18524742585</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-envelope mr-2 text-secondary"></i>
+                            <span>angus.zt.wang@outlook.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-map-marker mr-2 text-secondary"></i>
+                            <span>特克斯县马场派出所</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-medium mb-4">分享邀请</h3>
+                    <p class="text-gray-400 mb-4">
+                        请分享此邀请函给其他亲友，共同见证这一幸福时刻。
+                    </p>
+                    <div class="flex space-x-2">
+                        <button class="bg-secondary bg-opacity-20 hover:bg-opacity-30 text-white p-2 rounded-full transition-colors" onclick="copyToClipboard('AngusZTWang')">
+                            <i class="fa fa-weixin"></i>
+                        </button>
+                        <button class="bg-secondary bg-opacity-20 hover:bg-opacity-30 text-white p-2 rounded-full transition-colors" onclick="copyToClipboard('夹竹桃是我')">
+                            <i class="fa fa-weibo"></i>
+                        </button>
+                        <button class="bg-secondary bg-opacity-20 hover:bg-opacity-30 text-white p-2 rounded-full transition-colors" onclick="copyToClipboard('https://angus-wedding-invitation.netlify.app/')">
+                            <i class="fa fa-link"></i>
+                        </button>
+                        <button class="bg-secondary bg-opacity-20 hover:bg-opacity-30 text-white p-2 rounded-full transition-colors" onclick="copyToClipboard('https://angus-wedding-invitation.netlify.app/')">
+                            <i class="fa fa-share-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>-->
+
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+            <p>
+                &copy; 2026 出阁宴邀请函. 保留所有权利.  设计与制作：<a href="mailto:angus.zt.wang@outlook.com" style="color: #b8860b; text-decoration: none; border-bottom: 1px dashed #b8860b;">angus.zt.wang@outlook.com</a>
+            </p>
+        </div>
+        <!--</div>-->
+    </footer>
+
+
+    <!-- 照片查看器模态框 -->
+    <div id="photo-viewer"
+         class="fixed inset-0 bg-black/90 flex items-center justify-center z-50 hidden">
+        <div class="relative w-full max-w-5xl mx-auto px-4 h-full flex items-center justify-center">
+
+            <!-- 关闭按钮 → 提高层级 -->
+            <button id="close-viewer"
+                    class="absolute top-4 right-4 text-white text-3xl hover:text-secondary transition-colors z-50">
+                <i class="fa fa-times"></i>
+            </button>
+
+            <!-- 左右切换按钮 → 提高层级 -->
+            <div class="flex items-center justify-between absolute top-1/2 left-0 right-0 -translate-y-1/2 px-4 z-50">
+                <button id="prev-photo"
+                        class="bg-white/20 hover:bg-white/40 rounded-full w-12 h-12 flex items-center justify-center">
+                    <i class="fa fa-chevron-left text-white text-2xl"></i>
+                </button>
+                <button id="next-photo"
+                        class="bg-white/20 hover:bg-white/40 rounded-full w-12 h-12 flex items-center justify-center">
+                    <i class="fa fa-chevron-right text-white text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- 图片容器 -->
+            <div class="relative w-full h-[80vh] flex items-center justify-center z-0">
+                <img id="current-photo" src="" alt="查看照片" class="max-w-full max-h-full object-contain">
+            </div>
+
+            <!-- 指示器 -->
+            <div class="absolute bottom-4 left-0 right-0 flex justify-center z-10">
+                <div id="viewer-indicators" class="flex space-x-2">
+                    <!-- 动态生成 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 音频元素 -->
+    <audio id="bgm" loop preload="auto">
+        <source src="./mybgm.mp3" type="audio/mpeg">
+        您的浏览器不支持音频元素。
+    </audio>
+    <script>
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function () {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+
+            // 导航栏滚动效果
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('bg-dark', 'bg-opacity-90');
+                    navbar.classList.remove('bg-transparent');
+                } else {
+                    navbar.classList.remove('bg-dark', 'bg-opacity-90');
+                    navbar.classList.add('bg-transparent');
+                }
+            });
+
+            // 移动端菜单切换
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            menuToggle.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+
+                        // 如果是移动端，点击后关闭菜单
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+
+            // 照片数据
+            const photos = [
+                { url: 'https://i.imgant.com/v2/xvcvB2i.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/N5tUaJe.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/cZH31Ga.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/jjnkVwl.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/IzDMCao.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/CDyu93L.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/NIQVKdc.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/tn0IWTY.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/K36MAyw.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/5TzZnOk.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/1vLiRyF.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/hXN1o5G.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/53qNw06.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/9bQLhOp.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/MUGYqSg.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/Sujjaxq.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/sAf3EOG.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/1N5yCq0.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/HthQOo7.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/HtoMUDp.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/914jicB.jpeg', aspectRatio: 'landscape' },
+                { url: 'https://i.imgant.com/v2/3JvA5PT.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/0jCuBwJ.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/sWf5SYz.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/aVR9xFj.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/Wsl5tnz.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/PSQR007.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/2W6N8s4.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/fLrKHRk.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/jyR7sPc.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/pG2fatK.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/NfSQBZ7.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/FklpFsR.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/sdrXIeK.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/JHiFzJ9.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/JUpLoNZ.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/hJ6yzAz.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/o0Kr7u9.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/8uSbJqS.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/xV9BiDF.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/TGHlow2.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/C3Sdcgs.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/A5d9CAs.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/akmgV5T.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/pmap9TE.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/0ErHxN7.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/EP9Lzbc.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/s3T3tLZ.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/a2c9var.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/D70u2mj.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/a2F5gZn.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/H3l4GFS.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/FI5rOCd.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/YYbl6FE.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/zvnRbKY.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/E30Ahvx.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/enGIIR6.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/0XQkD5e.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/wB45IL6.jpeg', aspectRatio: 'portrait' },
+                { url: 'https://i.imgant.com/v2/g5whtvt.jpeg', aspectRatio: 'portrait' }
+            ];
+
+            // 渲染照片网格
+            const photoGallery = document.getElementById('photo-gallery');
+
+            photos.forEach((photo, index) => {
+                const photoItem = document.createElement('div');
+                photoItem.className = 'photo-item overflow-hidden rounded-lg shadow-lg';
+
+                // 根据照片比例设置不同的样式
+                if (photo.aspectRatio === 'portrait') {
+                    photoItem.classList.add('aspect-[3/5]'); // 3:5 纵向照片
+                } else {
+                    photoItem.classList.add('aspect-[5/3]'); // 5:3 横向照片
+                }
+
+                // 添加数据属性，用于照片查看器
+                photoItem.setAttribute('data-index', index);
+
+                // 创建图片元素
+                const img = document.createElement('img');
+                img.src = photo.url;
+                img.alt = `照片 ${index + 1}`;
+                img.loading = 'lazy'; // 延迟加载
+
+                // 添加到容器
+                photoItem.appendChild(img);
+                photoGallery.appendChild(photoItem);
+
+                // 添加点击事件，打开照片查看器
+                photoItem.addEventListener('click', function () {
+                    openPhotoViewer(index);
+                });
+            });
+
+            // 照片查看器
+            const photoViewer = document.getElementById('photo-viewer');
+            const currentPhoto = document.getElementById('current-photo');
+            const viewerIndicators = document.getElementById('viewer-indicators');
+            const closeViewer = document.getElementById('close-viewer');
+            const prevPhoto = document.getElementById('prev-photo');
+            const nextPhoto = document.getElementById('next-photo');
+
+            let currentPhotoIndex = 0;
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            // 生成指示器
+            photos.forEach((_, index) => {
+                const indicator = document.createElement('div');
+                indicator.className = 'viewer-indicator';
+                indicator.dataset.index = index;
+                viewerIndicators.appendChild(indicator);
+            });
+
+            // 更新图片
+            function updatePhotoViewer() {
+                currentPhoto.src = photos[currentPhotoIndex].url;
+                currentPhoto.alt = `照片 ${currentPhotoIndex + 1}`;
+
+                // 更新指示器
+                document.querySelectorAll('.viewer-indicator').forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentPhotoIndex);
+                });
+            }
+
+            // 打开
+            function openPhotoViewer(index) {
+                currentPhotoIndex = index;
+                updatePhotoViewer();
+                photoViewer.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+
+            // 关闭
+            function closePhotoViewer() {
+                photoViewer.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+
+            // 上一张
+            function showPrevPhoto() {
+                currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
+                updatePhotoViewer();
+            }
+
+            // 下一张
+            function showNextPhoto() {
+                currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+                updatePhotoViewer();
+            }
+
+            // 点击空白关闭（只点背景才关闭）
+            photoViewer.addEventListener('click', (e) => {
+                if (e.target === photoViewer) {
+                    closePhotoViewer();
+                }
+            });
+
+            // 给三个按钮绑定点击事件（修复核心）
+            closeViewer.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closePhotoViewer();
+            });
+            prevPhoto.addEventListener('click', (e) => {
+                e.stopPropagation();
+                showPrevPhoto();
+            });
+            nextPhoto.addEventListener('click', (e) => {
+                e.stopPropagation();
+                showNextPhoto();
+            });
+
+            // 图片不拦截点击
+            currentPhoto.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+
+            // 左右滑动切换图片
+            photoViewer.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            photoViewer.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+            function handleSwipe() {
+                const minSwipeDistance = 50;
+                if (touchEndX < touchStartX - minSwipeDistance) {
+                    showNextPhoto();
+                }
+                if (touchEndX > touchStartX + minSwipeDistance) {
+                    showPrevPhoto();
+                }
+            }
+
+            // 键盘控制
+            document.addEventListener('keydown', (e) => {
+                if (photoViewer.classList.contains('hidden')) return;
+                if (e.key === 'Escape') closePhotoViewer();
+                if (e.key === 'ArrowLeft') showPrevPhoto();
+                if (e.key === 'ArrowRight') showNextPhoto();
+            });
+
+            // 视差滚动
+            window.addEventListener('scroll', function () {
+                const scrolled = window.pageYOffset;
+                const parallaxLayers = document.querySelectorAll('.parallax-layer');
+                parallaxLayers.forEach((layer, index) => {
+                    const speed = 0.5 + (index * 0.2);
+                    layer.style.transform = `translateY(${scrolled * speed}px)`;
+                });
+            });
+
+            // 尝试在用户交互时播放
+            document.addEventListener('click', tryPlayAudio, { once: true });
+            document.addEventListener('touchstart', tryPlayAudio, { once: true });
+            document.addEventListener('keydown', tryPlayAudio, { once: true });
+            console.log('婚礼邀请函页面加载完成');
+        });
+        const bgm = document.getElementById('bgm');
+        const status = document.getElementById('status');
+        const vinyl = document.getElementById('vinyl');
+        const playIndicator = document.getElementById('playIndicator');
+        const musicIcon = document.getElementById('music-icon');
+
+        let isInitialized = false;
+
+        // 初始化音乐播放器
+        function initAudio() {
+            if (isInitialized) return;
+
+            bgm.volume = 0.8; // 默认音量80%
+            isInitialized = true;
+
+            // 监听音乐事件
+            bgm.addEventListener('play', updatePlayState);
+            bgm.addEventListener('pause', updatePlayState);
+            bgm.addEventListener('ended', updatePlayState);
+            bgm.addEventListener('error', handleAudioError);
+
+            console.log('婚礼音乐播放器初始化完成');
+        }
+        // 🔥 只要鼠标一动就播放
+        window.addEventListener('mousemove', tryPlayAudio, { once: true });
+
+        // 🔥 只要滚动就播放
+        window.addEventListener('scroll', tryPlayAudio, { once: true });
+
+        // 🔥 只要点击就播放
+        document.addEventListener('click', tryPlayAudio, { once: true });
+
+        // 🔥 只要触摸就播放
+        document.addEventListener('touchstart', tryPlayAudio, { once: true });
+
+        // 尝试播放音乐
+        function tryPlayAudio() {
+            if (!isInitialized) {
+                initAudio();
+            }
+
+            bgm.play().then(() => {
+                console.log('音乐播放成功');
+                updatePlayState();
+            }).catch(error => {
+                console.warn('播放失败，需要用户交互:', error);
+                status.textContent = '点击播放按钮开始';
+                updatePlayState();
+            });
+        }
+
+        // 更新播放状态
+        function updatePlayState() {
+            if (bgm.paused) {
+                status.textContent = '点击黑胶唱片播放音乐';
+                vinyl.classList.remove('playing');
+                playIndicator.classList.add('opacity-0');
+                // 添加暂停时的视觉效果
+                vinyl.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(0, 0, 0, 0.5)';
+                musicIcon.className = 'fa fa-pause text-white text-xl';
+            } else {
+                status.textContent = '❤️ 正在播放我们的婚礼主题曲';
+                vinyl.classList.add('playing');
+                playIndicator.classList.remove('opacity-0');
+                // 添加播放时的视觉效果
+                vinyl.style.boxShadow = '0 15px 50px rgba(255, 107, 157, 0.4), inset 0 0 30px rgba(255, 107, 157, 0.2)';
+                // 播放时的微妙缩放动画
+                vinyl.style.transform = 'scale(1.02)';
+                musicIcon.className = 'fa fa-music text-white text-xl';
+                setTimeout(() => {
+                    vinyl.style.transform = 'scale(1)';
+                }, 300);
+            }
+        }
+
+        // 处理音频错误
+        function handleAudioError(error) {
+            console.error('音频播放错误:', error);
+            status.textContent = '音乐播放失败';
+            vinyl.classList.remove('playing');
+
+            // 显示错误提示
+            showNotification('婚礼音乐播放失败，请点击页面重试', 'error');
+        }
+
+        // 暂停/播放切换
+        function togglePlay() {
+            if (!isInitialized) {
+                initAudio();
+            }
+
+            if (bgm.paused) {
+                tryPlayAudio();
+            } else {
+                bgm.pause();
+                updatePlayState();
+            }
+        }
+
+        // 防止页面卸载时音乐继续播放
+        window.addEventListener('beforeunload', function () {
+            if (bgm && !bgm.paused) {
+                bgm.pause();
+            }
+        });
+
+        // 复制文本到剪贴板（通用方法）
+        async function copyToClipboard(text) {
+            try {
+                await navigator.clipboard.writeText(text);
+                alert(`链接：[${text}]已复制，可手动分享`);
+                return true;
+            } catch (err) {
+                // 降级方案
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                alert(`链接：[${text}]已复制，可手动分享`);
+                return true;
+            }
+        }
+
+        // 高德地图
+        function searchOnAmap() {
+            window.location.href = `https://ditu.amap.com/ssr/place/B03E70MB4N?id=B03E70MB4N&source=main&name=%E5%A4%AA%E6%9E%81%E5%B2%9B%E9%85%92%E5%BA%97`;
+        }
+        // 为照片添加点击放大预览功能
+        const photoFrames = document.querySelectorAll('.photo-frame');
+        photoFrames.forEach(frame => {
+            frame.addEventListener('click', function () {
+                const imgSrc = this.querySelector('img').src;
+                const imgAlt = this.querySelector('img').alt;
+
+                // 创建预览模态框
+                const modal = document.createElement('div');
+                modal.className = 'fixed inset-0 bg-black/70 flex items-center justify-center z-50';
+                modal.innerHTML = `
+                                                            <div class="bg-white p-4 rounded-lg max-w-md w-full mx-4">
+                                                                <div class="relative">
+                                                                    <img src="${imgSrc}" alt="${imgAlt}" class="w-full h-auto rounded-lg">
+                                                                    <button class="absolute top-2 right-2 bg-white/80 rounded-full w-8 h-8 flex items-center justify-center text-textDark hover:text-primary transition-colors">
+                                                                        <i class="fa fa-times"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <p class="text-center mt-3 font-medium">${imgAlt}</p>
+                                                            </div>
+                                                        `;
+
+                document.body.appendChild(modal);
+                document.body.style.overflow = 'hidden';
+
+                // 关闭模态框
+                modal.addEventListener('click', function (e) {
+                    if (e.target === modal || e.target.closest('button')) {
+                        document.body.removeChild(modal);
+                        document.body.style.overflow = '';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
