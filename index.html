@@ -34,7 +34,7 @@
                         primary: '#f8f0e3',
                         secondary: '#d4af37',
                         accent: '#8b0000',
-                        light: '#ffffff',
+                        light: '#ffffff',       
                         dark: '#333333',
                         love: '#FF6B9D',
                         soft: '#FFF0F5',
@@ -277,18 +277,27 @@
             border-radius: 0.5rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+            /* 开启硬件加速 */
+            transform: translateZ(0);
+            /* 禁止不必要重绘 */
+            will-change: transform;
+            /* 杜绝溢出重排 */
+            overflow: hidden;
         }
 
             .photo-item:hover {
                 transform: translateY(-5px);
                 box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
             }
-
             .photo-item img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
                 transition: transform 0.5s ease;
+                /* 关键：降低绘制消耗 */
+                image-rendering: auto;
+                /* 禁止拉伸重计算 */
+                contain: layout paint;
             }
 
             .photo-item:hover img {
@@ -713,7 +722,6 @@
                     2026年5月5日，爱女张华婴与爱婿王泽童喜结连理。<br>父母张济新、冒婧馨敬备薄酒，诚邀您莅临出阁宴，共同见证这幸福时刻。
                 </p>
             </div>
-            <!--<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">-->
             <!-- 时间地点 高级卡片 -->
             <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl p-8" data-aos="fade-right">
                 <h3 class="text-2xl font-serif font-bold mb-8 flex items-center gap-3 text-white">
@@ -765,131 +773,15 @@
                     </div>
                 </div>
             </div>
-
-            <!-- 活动流程 高级时间线 -->
-            <!--<div data-aos="fade-left">
-                <h3 class="text-2xl font-serif font-bold mb-8 flex items-center gap-3">
-                    <i class="fa fa-list-alt text-secondary"></i> 活动流程
-                </h3>
-                <div class="space-y-5 pl-4">
-                    <div class="flex gap-5 items-start">
-                        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-secondary/15 border border-secondary/20 shrink-0">
-                            <i class="fa fa-pencil text-secondary text-lg"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-lg font-medium text-white">13:30 嘉宾签到</h4>
-                            <p class="text-gray-400 text-sm mt-1">嘉宾签到并有序入座</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-5 items-start">
-                        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-secondary/15 border border-secondary/20 shrink-0">
-                            <i class="fa fa-heart text-secondary text-lg"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-lg font-medium text-white">14:00 仪式开始</h4>
-                            <p class="text-gray-400 text-sm mt-1">出阁仪式正式开始</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-5 items-start">
-                        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-secondary/15 border border-secondary/20 shrink-0">
-                            <i class="fa fa-cutlery text-secondary text-lg"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-lg font-medium text-white">14:30 宴会开始</h4>
-                            <p class="text-gray-400 text-sm mt-1">享用丰盛的午餐</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-5 items-start">
-                        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-secondary/15 border border-secondary/20 shrink-0">
-                            <i class="fa fa-glass text-secondary text-lg"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-lg font-medium text-white">15:00 互动环节</h4>
-                            <p class="text-gray-400 text-sm mt-1">新人向在座嘉宾敬酒</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-5 items-start">
-                        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-secondary/15 border border-secondary/20 shrink-0">
-                            <i class="fa fa-gift text-secondary text-lg"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-lg font-medium text-white">17:00 活动结束</h4>
-                            <p class="text-gray-400 text-sm mt-1">仪式结束，嘉宾离场</p>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
-            <!--</div>-->
         </div>
     </section>
     <!-- 页脚 -->
     <footer class="bg-dark text-white py-12">
-        <!--<div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-2xl font-serif font-bold mb-4">出阁宴</h3>
-                    <p class="text-gray-400 mb-4">
-                        诚挚邀请您参加张华婴&王泽童的出阁宴，共同见证这一重要时刻。<br>主办：张华婴父母 张济新&冒婧馨 敬邀
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="javascript:void(0);" class="text-white hover:text-secondary transition-colors" onclick="copyToClipboard('AngusZTWang')">
-                            <i class="fa fa-weixin text-2xl"></i>
-                        </a>
-                        <a href="#" class="text-white hover:text-secondary transition-colors" onclick="copyToClipboard('夹竹桃是我')">
-                            <i class="fa fa-weibo text-2xl"></i>
-                        </a>
-                        <a href="#" class="text-white hover:text-secondary transition-colors" onclick="copyToClipboard('angus.zt.wang@outlook.com')">
-                            <i class="fa fa-envelope text-2xl"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div>
-                    <h3 class="text-xl font-medium mb-4">联系我们</h3>
-                    <ul class="space-y-2 text-gray-400">
-                        <li class="flex items-center">
-                            <i class="fa fa-phone mr-2 text-secondary"></i>
-                            <span>18524742585</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fa fa-envelope mr-2 text-secondary"></i>
-                            <span>angus.zt.wang@outlook.com</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fa fa-map-marker mr-2 text-secondary"></i>
-                            <span>特克斯县马场派出所</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 class="text-xl font-medium mb-4">分享邀请</h3>
-                    <p class="text-gray-400 mb-4">
-                        请分享此邀请函给其他亲友，共同见证这一幸福时刻。
-                    </p>
-                    <div class="flex space-x-2">
-                        <button class="bg-secondary bg-opacity-20 hover:bg-opacity-30 text-white p-2 rounded-full transition-colors" onclick="copyToClipboard('AngusZTWang')">
-                            <i class="fa fa-weixin"></i>
-                        </button>
-                        <button class="bg-secondary bg-opacity-20 hover:bg-opacity-30 text-white p-2 rounded-full transition-colors" onclick="copyToClipboard('夹竹桃是我')">
-                            <i class="fa fa-weibo"></i>
-                        </button>
-                        <button class="bg-secondary bg-opacity-20 hover:bg-opacity-30 text-white p-2 rounded-full transition-colors" onclick="copyToClipboard('https://angus-wedding-invitation.netlify.app/')">
-                            <i class="fa fa-link"></i>
-                        </button>
-                        <button class="bg-secondary bg-opacity-20 hover:bg-opacity-30 text-white p-2 rounded-full transition-colors" onclick="copyToClipboard('https://angus-wedding-invitation.netlify.app/')">
-                            <i class="fa fa-share-alt"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>-->
-
         <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
             <p>
                 &copy; 2026 出阁宴邀请函. 保留所有权利.  设计与制作：<a href="mailto:angus.zt.wang@outlook.com" style="color: #b8860b; text-decoration: none; border-bottom: 1px dashed #b8860b;">angus.zt.wang@outlook.com</a>
             </p>
         </div>
-        <!--</div>-->
     </footer>
 
 
@@ -937,7 +829,7 @@
     </audio>
     <script>
         // 页面加载完成后初始化
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', async function () {
             AOS.init({
                 duration: 800,
                 easing: 'ease-in-out',
@@ -988,14 +880,14 @@
             });
 
             const imageUrls = [
-                "https://s41.ax1x.com/2026/04/08/peUTV78.jpg",
-                "https://s41.ax1x.com/2026/04/08/peUTeAS.jpg",
-                "https://s41.ax1x.com/2026/04/09/pea5hsx.jpg",
-                "https://s41.ax1x.com/2026/04/09/pea52W9.jpg",
-                "https://s41.ax1x.com/2026/04/09/pea5RzR.jpg",
-                "https://s41.ax1x.com/2026/04/08/peUTCpd.jpg",
-                "https://s41.ax1x.com/2026/04/09/pedprgP.jpg",
-                "https://s41.ax1x.com/2026/04/09/pedpsjf.jpg",
+                "https://i.imgant.com/v2/MoQD7Fx.jpeg",
+                "https://i.imgant.com/v2/StgXeGW.jpeg",
+                "https://i.imgant.com/v2/oYSxZ2H.jpeg",
+                "https://i.imgant.com/v2/eObjGHH.jpeg",
+                "https://i.imgant.com/v2/aojzWWP.jpeg",
+                "https://i.imgant.com/v2/Jj8vjRl.jpeg",
+                "https://i.imgant.com/v2/1IOhRM7.jpeg",
+                "https://i.imgant.com/v2/ebrxbzP.jpeg",
             ];
             document.getElementById("ogImage").content = imageUrls[5];
             document.getElementById("twitterImage").content = imageUrls[5];
@@ -1008,99 +900,62 @@
             document.getElementById("storyImg").src = imageUrls[0];
             // 照片数据
             const photos = [
-                { url: 'https://s41.ax1x.com/2026/04/10/pew9NX6.jpg', aspectRatio: 'landscape' },
-                { url: 'https://s41.ax1x.com/2026/04/07/peUtRSI.jpg', aspectRatio: 'landscape' },
-                { url: 'https://s41.ax1x.com/2026/04/07/peUtgfA.jpg', aspectRatio: 'landscape' },
-                //{ url: 'https://s41.ax1x.com/2026/04/08/peUTV78.jpg', aspectRatio: 'landscape' },
-                { url: 'https://s41.ax1x.com/2026/04/08/peUTAnP.jpg', aspectRatio: 'landscape' },
-                //{ url: 'https://s41.ax1x.com/2026/04/08/peUTeAS.jpg', aspectRatio: 'landscape' },
-                //{ url: 'https://s41.ax1x.com/2026/04/09/pea5hsx.jpg', aspectRatio: 'landscape' },
-                { url: 'https://s41.ax1x.com/2026/04/10/pew98h9.jpg', aspectRatio: 'landscape' },
-                //{ url: 'https://s41.ax1x.com/2026/04/09/pea52W9.jpg', aspectRatio: 'landscape' },
-                { url: 'https://s41.ax1x.com/2026/04/10/pew9JpR.jpg', aspectRatio: 'landscape' },
-                { url: 'https://s41.ax1x.com/2026/04/09/pea5gJJ.jpg', aspectRatio: 'landscape' },
-                { url: 'https://s41.ax1x.com/2026/04/10/pew9t6x.jpg', aspectRatio: 'landscape' },
-                { url: 'https://s41.ax1x.com/2026/04/10/pew9Y11.jpg', aspectRatio: 'landscape' },
-                { url: 'https://s41.ax1x.com/2026/04/09/pea5fQ1.jpg', aspectRatio: 'landscape' },
-                //{ url: 'https://s41.ax1x.com/2026/04/09/pea5RzR.jpg', aspectRatio: 'landscape' },
-                { url: 'https://s41.ax1x.com/2026/04/09/pea54L6.jpg', aspectRatio: 'landscape' },
-                { url: 'https://s41.ax1x.com/2026/04/10/pew9anK.jpg', aspectRatio: 'landscape' },
-                { url: 'https://s41.ax1x.com/2026/04/14/peDIIeA.jpg', aspectRatio: 'landscape' },
-                { url: 'https://s41.ax1x.com/2026/04/14/peDIHFP.jpg', aspectRatio: 'landscape' },
-                //{ url: 'https://s41.ax1x.com/2026/04/08/peUTCpd.jpg', aspectRatio: 'landscape' },
-                { url: 'https://s41.ax1x.com/2026/04/14/peDIodI.jpg', aspectRatio: 'landscape' },
-                { url: 'https://s41.ax1x.com/2026/04/14/peDITot.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/14/peDIhsH.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/14/peDI4Ld.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/14/peDIRzD.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/14/peDIfQe.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/16/pesnMFJ.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/16/pesnuo4.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/07/peUthOf.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/16/pesnnwF.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/07/peUtf6P.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/07/peUtWlt.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/16/pesn3S1.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/16/pesnmeU.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/16/pesnQY9.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/08/peUTP1A.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/16/pesnlWR.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/08/peUTE0f.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/07/peUtI0S.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/16/pesn8Qx.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/17/peya1RP.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/17/peya3xf.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/17/peyalGt.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/17/peyaQPI.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/17/peyaYqg.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/07/peUt5m8.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/07/peUtoTg.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/17/peyaGM8.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/17/peyaJsS.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/17/peyaNZQ.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/20/pec4HiR.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/20/pec44LF.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/08/peUTFXt.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/20/pec4IZ4.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/20/pec4hsU.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/20/pec4fMT.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/20/pec4odJ.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/08/peUTi6I.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/20/pec4To9.jpg', aspectRatio: 'portrait' },
-                { url: 'https://s41.ax1x.com/2026/04/20/pec4bJ1.jpg', aspectRatio: 'portrait' }
-
+                { url: 'https://i.imgant.com/v2/GME6jUh.jpeg', ratio: 2.45 },
+                { url: 'https://i.imgant.com/v2/MkzPOWO.jpeg', ratio: 2.45 },
+                { url: 'https://i.imgant.com/v2/AWR5jK8.jpeg', ratio: 2.45 },
+                { url: 'https://i.imgant.com/v2/kRDqY6M.jpeg', ratio: 2.03 },
+                { url: 'https://i.imgant.com/v2/2xFZ371.jpeg', ratio: 2.03 },
+                { url: 'https://i.imgant.com/v2/iWG0xz6.jpeg', ratio: 2.03 },
+                { url: 'https://i.imgant.com/v2/qAyAmD5.jpeg', ratio: 2.03 },
+                { url: 'https://i.imgant.com/v2/wqzFF5Y.jpeg', ratio: 2.03 },
+                { url: 'https://i.imgant.com/v2/paVAjIP.jpeg', ratio: 2.45 },
+                { url: 'https://i.imgant.com/v2/WMMf8rk.jpeg', ratio: 2.03 },
+                { url: 'https://i.imgant.com/v2/Zqa0hrY.jpeg', ratio: 2.45 },
+                { url: 'https://i.imgant.com/v2/7mQe1b8.jpeg', ratio: 2.45 },
+                { url: 'https://i.imgant.com/v2/ItRm8Ch.jpeg', ratio: 2.45 },
+                { url: 'https://i.imgant.com/v2/EivstOJ.jpeg', ratio: 2.03 },
+                { url: 'https://i.imgant.com/v2/1lVP8Gr.jpeg', ratio: 2.03 },
+                { url: 'https://i.imgant.com/v2/1HPCTyB.jpeg', ratio: 2.45 },
+                { url: 'https://i.imgant.com/v2/4MjbOxO.jpeg', ratio: 2.45 },
+                { url: 'https://i.imgant.com/v2/pIfyTUi.jpeg', ratio: 2.45 },
+                { url: 'https://i.imgant.com/v2/oSmEF5r.jpeg', ratio: 2.03 },
+                { url: 'https://i.imgant.com/v2/7kLNkeh.jpeg', ratio: 2.03 },
+                { url: 'https://i.imgant.com/v2/JFx6UNI.jpeg', ratio: 2.45 },
+                { url: 'https://i.imgant.com/v2/RDjFEGR.jpeg', ratio: 2.03 },
             ];
             // 渲染照片网格
             const photoGallery = document.getElementById('photo-gallery');
-
+            //// 并行加载所有图片
+            //await Promise.all(
+            //    photos.map((item, index) => {
+            //        return new Promise(resolve => {
+            //            const img = new Image();
+            //            img.onload = () => {
+            //                // 🔥 直接把 ratio 赋值给【原数组 photos】
+            //                photos[index].ratio = img.width / img.height;
+            //                resolve();
+            //            };
+            //            img.src = item.url;
+            //        });
+            //    })
+            //);
+            //// 按宽高比升序排序
+            //photos.sort((a, b) => b.ratio - a.ratio);
             photos.forEach((photo, index) => {
                 const photoItem = document.createElement('div');
-                photoItem.className = 'photo-item overflow-hidden rounded-lg shadow-lg';
+                photoItem.className = 'photo-item rounded-lg shadow-lg';
 
-                // 根据照片比例设置不同的样式
-                if (photo.aspectRatio === 'portrait') {
-                    photoItem.classList.add('aspect-[3/5]'); // 3:5 纵向照片
-                } else {
-                    photoItem.classList.add('aspect-[5/3]'); // 5:3 横向照片
-                }
-
-                // 添加数据属性，用于照片查看器
-                photoItem.setAttribute('data-index', index);
-
-                // 创建图片元素
                 const img = document.createElement('img');
                 img.src = photo.url;
                 img.alt = `照片 ${index + 1}`;
-                img.loading = 'lazy'; // 延迟加载
+                img.loading = 'lazy';
+                img.className = 'w-full h-auto object-contain';
 
-                // 添加到容器
                 photoItem.appendChild(img);
                 photoGallery.appendChild(photoItem);
 
-                // 添加点击事件，打开照片查看器
-                photoItem.addEventListener('click', function () {
-                    openPhotoViewer(index);
-                });
+                photoItem.setAttribute('data-index', index);
+                photoItem.addEventListener('click', () => openPhotoViewer(index));
             });
 
             // 照片查看器
@@ -1273,7 +1128,7 @@
                 console.log('音乐播放成功');
                 updatePlayState();
             }).catch(error => {
-                console.warn('播放失败，需要用户交互:', error);
+                console.error('播放失败，需要用户交互:', error);
                 status.textContent = '点击播放按钮开始';
                 updatePlayState();
             });
@@ -1368,16 +1223,16 @@
                 const modal = document.createElement('div');
                 modal.className = 'fixed inset-0 bg-black/70 flex items-center justify-center z-50';
                 modal.innerHTML = `
-                                                                                    <div class="bg-white p-4 rounded-lg max-w-md w-full mx-4">
-                                                                                        <div class="relative">
-                                                                                            <img src="${imgSrc}" alt="${imgAlt}" class="w-full h-auto rounded-lg">
-                                                                                            <button class="absolute top-2 right-2 bg-white/80 rounded-full w-8 h-8 flex items-center justify-center text-textDark hover:text-primary transition-colors">
-                                                                                                <i class="fa fa-times"></i>
-                                                                                            </button>
-                                                                                        </div>
-                                                                                        <p class="text-center mt-3 font-medium">${imgAlt}</p>
-                                                                                    </div>
-                                                                                `;
+                        <div class="bg-white p-4 rounded-lg max-w-md w-full mx-4">
+                            <div class="relative">
+                                <img src="${imgSrc}" alt="${imgAlt}" class="w-full h-auto rounded-lg">
+                                <button class="absolute top-2 right-2 bg-white/80 rounded-full w-8 h-8 flex items-center justify-center text-textDark hover:text-primary transition-colors">
+                                    <i class="fa fa-times"></i>
+                                </button>
+                            </div>
+                            <p class="text-center mt-3 font-medium">${imgAlt}</p>
+                        </div>
+                    `;
 
                 document.body.appendChild(modal);
                 document.body.style.overflow = 'hidden';
