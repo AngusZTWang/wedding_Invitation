@@ -518,9 +518,9 @@
                     <a href="#photos" class="text-white hover:text-secondary transition-colors">我的照片集</a>
                     <a href="#details" class="text-white hover:text-secondary transition-colors">活动详情</a>
                 </div>
-                <div id="music-control" class="w-10 h-10 rounded-full bg-secondary/80 flex items-center justify-center cursor-pointer hover:scale-110 transition-all shadow-lg" onclick="togglePlay()">
+                <!--<div id="music-control" class="w-10 h-10 rounded-full bg-secondary/80 flex items-center justify-center cursor-pointer hover:scale-110 transition-all shadow-lg" onclick="togglePlay()">
                     <i id="music-icon" class="fa fa-pause text-white text-xl"></i>
-                </div>
+                </div>-->
                 <button class="md:hidden text-white focus:outline-none" id="menu-toggle">
                     <i class="fa fa-bars text-2xl"></i>
                 </button>
@@ -587,7 +587,7 @@
                     </div>
                 </div>
                 <!-- 状态显示 -->
-                <div class="text-center mb-6" onclick="togglePlay()">
+                <div class="text-center mb-6" >
                     <div class="bg-gray-800/50 rounded-full px-4 py-2 inline-block">
                         <span class="text-sm font-medium text-gray-300" id="status">
                             点击黑胶唱片播放音乐
@@ -829,10 +829,10 @@
     </div>
 
     <!-- 音频元素 -->
-    <audio id="bgm" loop preload="auto">
+    <!--<audio id="bgm" loop preload="auto">
         <source src="./mybgm.mp3" type="audio/mpeg">
         您的浏览器不支持音频元素。
-    </audio>
+    </audio>-->
     <script>
         // 页面加载完成后初始化
         document.addEventListener('DOMContentLoaded', async function () {
