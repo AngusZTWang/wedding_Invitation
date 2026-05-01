@@ -30,8 +30,7 @@
     <!-- AOS 滚动动画库 -->
     <link href="https://cdn.bootcdn.net/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <script src="https://cdn.bootcdn.net/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        tailwind.config = {
+    <script>tailwind.config = {
             theme: {
                 extend: {
                     colors: {
@@ -54,8 +53,7 @@
                     }
                 }
             }
-        }
-    </script>
+        }</script>
 
     <style type="text/tailwindcss">
         @layer utilities {
@@ -518,9 +516,6 @@
                     <a href="#photos" class="text-white hover:text-secondary transition-colors">我的照片集</a>
                     <a href="#details" class="text-white hover:text-secondary transition-colors">活动详情</a>
                 </div>
-                <!--<div id="music-control" class="w-10 h-10 rounded-full bg-secondary/80 flex items-center justify-center cursor-pointer hover:scale-110 transition-all shadow-lg" onclick="togglePlay()">
-                    <i id="music-icon" class="fa fa-pause text-white text-xl"></i>
-                </div>-->
                 <button class="md:hidden text-white focus:outline-none" id="menu-toggle">
                     <i class="fa fa-bars text-2xl"></i>
                 </button>
@@ -587,7 +582,7 @@
                     </div>
                 </div>
                 <!-- 状态显示 -->
-                <div class="text-center mb-6" >
+                <div class="text-center mb-6" onclick="togglePlay()">
                     <div class="bg-gray-800/50 rounded-full px-4 py-2 inline-block">
                         <span class="text-sm font-medium text-gray-300" id="status">
                             点击黑胶唱片播放音乐
@@ -833,8 +828,7 @@
         <source src="./mybgm.mp3" type="audio/mpeg">
         您的浏览器不支持音频元素。
     </audio>-->
-    <script>
-        // 页面加载完成后初始化
+    <script>// 页面加载完成后初始化
         document.addEventListener('DOMContentLoaded', async function () {
             AOS.init({
                 duration: 800,
@@ -907,25 +901,25 @@
                 { url: 'https://i.imgant.com/v2/GME6jUh.jpeg', ratio: 2.45 },
                 { url: 'https://i.imgant.com/v2/MkzPOWO.jpeg', ratio: 2.45 },
                 { url: 'https://i.imgant.com/v2/AWR5jK8.jpeg', ratio: 2.45 },
-                { url: 'https://i.imgant.com/v2/kRDqY6M.jpeg', ratio: 2.03 },
-                { url: 'https://i.imgant.com/v2/2xFZ371.jpeg', ratio: 2.03 },
-                { url: 'https://i.imgant.com/v2/iWG0xz6.jpeg', ratio: 2.03 },
-                { url: 'https://i.imgant.com/v2/qAyAmD5.jpeg', ratio: 2.03 },
-                { url: 'https://i.imgant.com/v2/wqzFF5Y.jpeg', ratio: 2.03 },
+                //{ url: 'https://i.imgant.com/v2/kRDqY6M.jpeg', ratio: 2.03 },
+                //{ url: 'https://i.imgant.com/v2/2xFZ371.jpeg', ratio: 2.03 },
+                //{ url: 'https://i.imgant.com/v2/iWG0xz6.jpeg', ratio: 2.03 },
+                //{ url: 'https://i.imgant.com/v2/qAyAmD5.jpeg', ratio: 2.03 },
+                //{ url: 'https://i.imgant.com/v2/wqzFF5Y.jpeg', ratio: 2.03 },
                 { url: 'https://i.imgant.com/v2/paVAjIP.jpeg', ratio: 2.45 },
-                { url: 'https://i.imgant.com/v2/WMMf8rk.jpeg', ratio: 2.03 },
+                //{ url: 'https://i.imgant.com/v2/WMMf8rk.jpeg', ratio: 2.03 },
                 { url: 'https://i.imgant.com/v2/Zqa0hrY.jpeg', ratio: 2.45 },
                 { url: 'https://i.imgant.com/v2/7mQe1b8.jpeg', ratio: 2.45 },
                 { url: 'https://i.imgant.com/v2/ItRm8Ch.jpeg', ratio: 2.45 },
-                { url: 'https://i.imgant.com/v2/EivstOJ.jpeg', ratio: 2.03 },
-                { url: 'https://i.imgant.com/v2/1lVP8Gr.jpeg', ratio: 2.03 },
+                //{ url: 'https://i.imgant.com/v2/EivstOJ.jpeg', ratio: 2.03 },
+                //{ url: 'https://i.imgant.com/v2/1lVP8Gr.jpeg', ratio: 2.03 },
                 { url: 'https://i.imgant.com/v2/1HPCTyB.jpeg', ratio: 2.45 },
                 { url: 'https://i.imgant.com/v2/4MjbOxO.jpeg', ratio: 2.45 },
                 { url: 'https://i.imgant.com/v2/pIfyTUi.jpeg', ratio: 2.45 },
-                { url: 'https://i.imgant.com/v2/oSmEF5r.jpeg', ratio: 2.03 },
-                { url: 'https://i.imgant.com/v2/7kLNkeh.jpeg', ratio: 2.03 },
+                //{ url: 'https://i.imgant.com/v2/oSmEF5r.jpeg', ratio: 2.03 },
+                //{ url: 'https://i.imgant.com/v2/7kLNkeh.jpeg', ratio: 2.03 },
                 { url: 'https://i.imgant.com/v2/JFx6UNI.jpeg', ratio: 2.45 },
-                { url: 'https://i.imgant.com/v2/RDjFEGR.jpeg', ratio: 2.03 },
+                //{ url: 'https://i.imgant.com/v2/RDjFEGR.jpeg', ratio: 2.03 },
             ];
             // 渲染照片网格
             const photoGallery = document.getElementById('photo-gallery');
@@ -1080,74 +1074,16 @@
                     layer.style.transform = `translateY(${scrolled * speed}px)`;
                 });
             });
-
-            // 尝试在用户交互时播放
-            document.addEventListener('click', tryPlayAudio, { once: true });
-            document.addEventListener('touchstart', tryPlayAudio, { once: true });
-            document.addEventListener('keydown', tryPlayAudio, { once: true });
+updatePlayState();
             console.log('婚礼邀请函页面加载完成');
         });
-        const bgm = document.getElementById('bgm');
         const status = document.getElementById('status');
         const vinyl = document.getElementById('vinyl');
         const playIndicator = document.getElementById('playIndicator');
-        const musicIcon = document.getElementById('music-icon');
-
-        let isInitialized = false;
-
-        // 初始化音乐播放器
-        function initAudio() {
-            if (isInitialized) return;
-
-            bgm.volume = 0.8; // 默认音量80%
-            isInitialized = true;
-
-            // 监听音乐事件
-            bgm.addEventListener('play', updatePlayState);
-            bgm.addEventListener('pause', updatePlayState);
-            bgm.addEventListener('ended', updatePlayState);
-            bgm.addEventListener('error', handleAudioError);
-
-            console.log('婚礼音乐播放器初始化完成');
-        }
-        // 🔥 只要鼠标一动就播放
-        window.addEventListener('mousemove', tryPlayAudio, { once: true });
-
-        // 🔥 只要滚动就播放
-        window.addEventListener('scroll', tryPlayAudio, { once: true });
-
-        // 🔥 只要点击就播放
-        document.addEventListener('click', tryPlayAudio, { once: true });
-
-        // 🔥 只要触摸就播放
-        document.addEventListener('touchstart', tryPlayAudio, { once: true });
-
-        // 尝试播放音乐
-        function tryPlayAudio() {
-            if (!isInitialized) {
-                initAudio();
-            }
-
-            bgm.play().then(() => {
-                console.log('音乐播放成功');
-                updatePlayState();
-            }).catch(error => {
-                console.error('播放失败，需要用户交互:', error);
-                status.textContent = '点击播放按钮开始';
-                updatePlayState();
-            });
-        }
 
         // 更新播放状态
         function updatePlayState() {
-            if (bgm.paused) {
-                status.textContent = '点击黑胶唱片播放音乐';
-                vinyl.classList.remove('playing');
-                playIndicator.classList.add('opacity-0');
-                // 添加暂停时的视觉效果
-                vinyl.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(0, 0, 0, 0.5)';
-                musicIcon.className = 'fa fa-pause text-white text-xl';
-            } else {
+
                 status.textContent = '❤️ 正在播放我们的婚礼主题曲';
                 vinyl.classList.add('playing');
                 playIndicator.classList.remove('opacity-0');
@@ -1155,62 +1091,11 @@
                 vinyl.style.boxShadow = '0 15px 50px rgba(255, 107, 157, 0.4), inset 0 0 30px rgba(255, 107, 157, 0.2)';
                 // 播放时的微妙缩放动画
                 vinyl.style.transform = 'scale(1.02)';
-                musicIcon.className = 'fa fa-music text-white text-xl';
                 setTimeout(() => {
                     vinyl.style.transform = 'scale(1)';
                 }, 300);
-            }
         }
 
-        // 处理音频错误
-        function handleAudioError(error) {
-            console.error('音频播放错误:', error);
-            status.textContent = '音乐播放失败';
-            vinyl.classList.remove('playing');
-
-            // 显示错误提示
-            showNotification('婚礼音乐播放失败，请点击页面重试', 'error');
-        }
-
-        // 暂停/播放切换
-        function togglePlay() {
-            if (!isInitialized) {
-                initAudio();
-            }
-
-            if (bgm.paused) {
-                tryPlayAudio();
-            } else {
-                bgm.pause();
-                updatePlayState();
-            }
-        }
-
-        // 防止页面卸载时音乐继续播放
-        window.addEventListener('beforeunload', function () {
-            if (bgm && !bgm.paused) {
-                bgm.pause();
-            }
-        });
-
-        // 复制文本到剪贴板（通用方法）
-        async function copyToClipboard(text) {
-            try {
-                await navigator.clipboard.writeText(text);
-                alert(`链接：[${text}]已复制，可手动分享`);
-                return true;
-            } catch (err) {
-                // 降级方案
-                const textarea = document.createElement('textarea');
-                textarea.value = text;
-                document.body.appendChild(textarea);
-                textarea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textarea);
-                alert(`链接：[${text}]已复制，可手动分享`);
-                return true;
-            }
-        }
 
         // 高德地图
         function searchOnAmap() {
@@ -1290,8 +1175,7 @@
                     closeModal();
                 }
             });
-        });
-    </script>
+        });</script>
 </body>
 
 </html>
